@@ -13,3 +13,4 @@ export const searchGitHubRepos = async (searchVal) => {
   }
 }
 
+export const filterRepos = (repos, filter) => repos.filter(repo => repo?.language?.toLowerCase().includes(filter.toLowerCase()));

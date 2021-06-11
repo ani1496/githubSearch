@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useStore } from './store';
 import logo from '../images/logo.svg';
-import { searchGitHubRepos } from './utils'
+import { searchGitHubRepos } from './utils/methods'
 import '../styles/index.css';
 
 const SearchBar = () => {

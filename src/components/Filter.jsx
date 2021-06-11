@@ -1,10 +1,17 @@
 import React from 'react';
+import { useStore } from './store';
+import { filterRepos } from './utils/methods';
 // { useState } 
 
 const Filter = () => {
-  // const [filter, setFilter] =  useState('');
+  const { initRepos, updateContext } = useStore();
 
-  const onFilterValChange = (val) => console.log(val);
+  const onFilterValChange = (val) => {
+    if(val === '') return updateContext({ type: 'CLEAR_FILTER'})
+
+    const filteredRepos = filterRepos(initRepos, val);
+    updateContext({ type: 'FILTERED_REPOS', data: filteredRepos })
+  };
 
   return(
     <div className="marg-2-t row">
