@@ -1,0 +1,168 @@
+p { all: unset; }
+h2 { margin: unset;}
+button {
+   all: unset;
+  cursor: pointer; 
+}
+a { color: #53565A}
+hr {
+  border: 1px solid;
+  color: black;
+  background-color: black;
+}
+
+.container {
+  margin: 50px;
+}
+
+.github-logo {
+  width: 75px;
+}
+
+.search-bar {
+  all: unset;
+  margin: auto;
+  display: block;
+  border: 2px solid;
+  border-radius: 4px 4px 0px 0px;
+  font-size: 20px;
+  padding: 8px;
+  width: 25rem;
+  margin-top: 15px;
+}
+
+.results {
+  margin: auto;
+  display: block;
+  border-left: 2px solid;
+  border-right: 2px solid;
+  border-bottom: 2px solid;
+  border-radius: 0px 0px 4px 4px;
+  font-size: 15px;
+  width: 26rem;
+}
+
+.result {
+  padding: 5px;
+}
+.result:hover {
+  background-color: black !important;
+  color: white;
+}
+
+.repo:hover > h2 {
+ font-weight: 800;
+ text-decoration: underline;
+}
+
+.sort-option-selected {
+  border-bottom: 2px solid;
+  font-weight: 500;
+}
+
+.sort-option:hover {
+  border-bottom: 2px solid;
+  font-weight: 500;
+}
+
+.dropdown-options {
+  margin-top: 5px;
+  position: absolute;
+  background: white;
+  width: inherit;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.dropdown-options > button:hover {
+  background-color: whitesmoke;
+}
+
+.filter-input {
+  all: unset;
+}
+
+/* Alignment */
+
+.flex {
+  display: flex;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.align-center {
+  justify-content: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+/* Padding */
+
+.pad-1 {
+  padding: 5px;
+}
+
+.pad-1-t {
+  padding-top: 5px;
+ }
+
+.pad-1-r {
+ padding-right: 5px;
+}
+
+.pad-1-b {
+  padding-bottom: 5px;
+ }
+
+.pad-1-tb {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.pad-2 {
+  padding: 10px;
+}
+
+.pad-2-r {
+ padding-right: 10px;
+}
+
+/* Margins */
+
+.marg-1 {
+  margin: 15px;
+}
+
+.marg-1-tb {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.marg-2-t {
+  margin-top: 25px;
+}
+
+
+/* column sizes */
+
+
+.col-4 {
+  width: 30%;
+}
