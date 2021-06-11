@@ -1,3 +1,5 @@
+import { mergeRepos } from '../utils/methods';
+
 export const reducer = (state, payload) => {
   switch(payload.type) {
     case 'GET_REPOS':
@@ -15,12 +17,16 @@ export const reducer = (state, payload) => {
       };
     case 'FILTERED_REPOS':
       return {
-        ...state, repos: payload.data,
+        ...state, filteredRepos: payload.data, repos: mergeRepos(payload.data, state.sortedRepos),
       };
     case 'CLEAR_FILTER':
       return {
-        ...state, repos: state.initRepos,
+        ...state, filteredRepos: [], repos: state.sortedRepos.length === 0 ? state.initRepos : state.sortedRepos,
       };
+    case 'SORTED_REPOS':
+      return {
+        ...state, sortedRepos: payload.data, repos: mergeRepos(state.filteredRepos, payload.data),
+      }
     default:
       return { ...state}
   }

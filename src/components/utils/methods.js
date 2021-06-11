@@ -14,3 +14,15 @@ export const searchGitHubRepos = async (searchVal) => {
 }
 
 export const filterRepos = (repos, filter) => repos.filter(repo => repo?.language?.toLowerCase().includes(filter.toLowerCase()));
+
+export const sortRepos = (repos, sortType) => {
+  const sortedRepos = [...repos];
+  return sortedRepos.sort((repoA, repoB) =>  repoB[sortType] - repoA[sortType])
+}
+
+export const mergeRepos = (filteredRepos, sortedRepos) => {
+  if (filteredRepos.length === 0) return [...sortedRepos];
+  if (sortedRepos.length === 0) return [...filteredRepos];
+
+  return sortedRepos.filter(sortedRepo => filteredRepos.some(({id}) => sortedRepo.id === id))
+}

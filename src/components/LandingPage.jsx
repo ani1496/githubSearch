@@ -8,7 +8,10 @@ import Filter from './Filter';
 import '../styles/index.css';
 
 const LandingPage = () => {
-  const { initRepos } = useStore();
+  const context= useStore();
+  const { initRepos } = context;
+
+  console.log('landingPage', context);
 
   const [showAll, setShowAll] = useState(false);
 

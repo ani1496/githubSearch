@@ -9,6 +9,8 @@ const Store = ({children}) => {
     loading: false,
     repos: [],
     initRepos: [],
+    sortedRepos: [],
+    filteredRepos: [],
   };
 
   const [context, updateContext] = useReducer(reducer, initialState)
