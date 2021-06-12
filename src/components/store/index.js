@@ -7,6 +7,8 @@ const Store = ({children}) => {
   const initialState = {
     error: false,
     loading: false,
+    searchInput: '',
+    selectedRepo: '',
     repos: [],
     initRepos: [],
     sortedRepos: [],

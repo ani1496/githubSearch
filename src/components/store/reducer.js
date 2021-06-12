@@ -1,19 +1,29 @@
 import { mergeRepos } from '../utils/methods';
 
+const clearAllRepos = {
+  repos: [],
+  initRepos: [],
+  sortedRepos: [],
+  filteredRepos: [],
+}
+
 export const reducer = (state, payload) => {
+  console.log(payload)
   switch(payload.type) {
+    case 'LOADING_REPOS':
+      return { ...state, searchInput: payload.input, loading: true, error: false, ...clearAllRepos }
     case 'GET_REPOS':
       return {
-        ...state, repos: payload.data, 
+        ...state, ...clearAllRepos, repos: payload.data, 
         initRepos: payload.data, error: false, loading: false
       };
     case 'CLEAR_REPOS':
       return {
-        ...state, repos: [], initRepos: [], error: false, loading: false
+        ...state, ...clearAllRepos, searchInput: '', error: false, loading: false
       };
     case 'ERROR_REPOS':
       return {
-        ...state, repos: [], initRepos: [], error: true, loading: false
+        ...state, ...clearAllRepos, error: true, loading: false
       };
     case 'FILTERED_REPOS':
       return {
@@ -27,6 +37,8 @@ export const reducer = (state, payload) => {
       return {
         ...state, sortedRepos: payload.data, repos: mergeRepos(state.filteredRepos, payload.data),
       }
+    case 'SET_SELECTED_REPO':
+      return { ...state, selectedRepo: payload.repo }
     default:
       return { ...state}
   }

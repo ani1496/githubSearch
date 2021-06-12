@@ -1,0 +1,94 @@
+
+.container {
+  margin: 50px;
+}
+
+.github-logo {
+  width: 75px;
+}
+
+.search-bar {
+  all: unset;
+  margin: auto;
+  display: block;
+  border: 2px solid;
+  border-radius: 4px 4px 0px 0px;
+  font-size: 20px;
+  padding: 8px;
+  width: 25rem;
+  margin-top: 15px;
+}
+
+.results {
+  margin: auto;
+  display: block;
+  border-left: 2px solid;
+  border-right: 2px solid;
+  border-bottom: 2px solid;
+  border-radius: 0px 0px 4px 4px;
+  font-size: 15px;
+  width: 26rem;
+}
+
+.result {
+  padding: 5px;
+}
+.result:hover {
+  background-color: black !important;
+  color: white;
+}
+
+.repo:hover > h2 {
+ font-weight: 800;
+ text-decoration: underline;
+}
+
+.sort-option-selected {
+  border-bottom: 2px solid;
+  font-weight: 500;
+}
+
+.sort-option:hover {
+  border-bottom: 2px solid;
+  font-weight: 500;
+}
+
+.dropdown-options {
+  margin-top: 5px;
+  position: absolute;
+  background: white;
+  width: inherit;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.dropdown-options > button:hover {
+  background-color: whitesmoke;
+}
+
+.filter-input {
+  all: unset;
+}
+
+.details-box {
+  border: 1.5px solid;
+  border-radius: 4px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  height: fit-content;
+}
+
+.header {
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 75px;
+}
+
+.header > img {
+  height: 50px;
+  align-self: center;
+}
+
+.header-searchbar {
+  background-color: white;
+  margin-left: unset;
+  margin-right: unset;
+}

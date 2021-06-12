@@ -1,0 +1,15 @@
+.grey {
+  color: #53565A;
+}
+
+.to-white {
+  filter: invert(100%);
+}
+
+.black-bg {
+  background-color: black;
+}
+
+.white-bg {
+  background-color: white;
+}

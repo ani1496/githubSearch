@@ -1,11 +1,25 @@
 import React from 'react';
-import LandingPage from './LandingPage';
-import '../styles/index.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import LandingPage from './LandingPage/index';
+import DetailsPage from './DetailsPage/index';
 
 const Container = () => {
-  return ( 
-    <LandingPage />
+  return (
+    <Router>
+        <Switch>
+          <Route path="/details">
+            <DetailsPage />
+          </Route>
+          <Route path="/">
+            <LandingPage />
+          </Route>
+        </Switch>
+    </Router>
   );
 }
 
-export default Container
+export default Container;

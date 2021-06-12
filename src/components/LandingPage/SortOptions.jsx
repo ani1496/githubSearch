@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
-import { useStore } from './store';
-import { sortRepos } from './utils/methods';
-import * as constants from './utils/constants';
+import { useStore } from '../store';
+import { sortRepos } from '../utils/methods';
+import * as constants from '../utils/constants';
 
 const SortOptions = () => {
   const { initRepos, updateContext} = useStore();
