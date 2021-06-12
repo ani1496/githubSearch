@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useStore } from '../store';
 import SearchBar from '../shared/SearchBar';
 import ShowAll from './ShowAll';
@@ -7,11 +7,7 @@ import Filter from './Filter';
 import logo from '../../images/logo.svg';
 
 const LandingPage = () => {
-  const { initRepos, searchInput } = useStore();
-
-  const [showAll, setShowAll] = useState(false);
-
-  useEffect(() => setShowAll(false), [searchInput])
+  const { initRepos, showAllRepos, updateContext } = useStore();
 
   return (
     <div className="container">
@@ -20,9 +16,12 @@ const LandingPage = () => {
           <img src={logo} alt="logo" className="github-logo pad-2-r"/>
           <h1>GitHub Search</h1>
         </div>
-        <SearchBar onSeeAll={() => setShowAll(true)}/>
+        <SearchBar 
+          onChange={() => updateContext({ type: 'SET_SHOW_ALL_REPOS', showAllRepos: false })} 
+          onSeeAll={() => updateContext({ type: 'SET_SHOW_ALL_REPOS', showAllRepos: true })}
+        />
       </>
-      {showAll && initRepos.length > 0 && (
+      {showAllRepos && initRepos.length > 0 && (
       <>  
       <div className="row space-between">
         <SortOptions />

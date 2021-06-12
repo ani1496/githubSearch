@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useStore } from '../store';
-// import logo from '../../images/logo.svg';
 import { searchGitHubRepos } from '../utils/methods'
 import Top5 from './Top5';
 
-const SearchBar = ({ onSeeAll, className }) => {
-  const { searchInput, updateContext, error } = useStore();
+const SearchBar = ({ className, onSeeAll, onChange = () => {}, }) => {
+  const { updateContext, error } = useStore();
   const [showTop5, setShowTop5] = useState(false);
 
   const onInputChange = (input) => {
+    onChange();
     if ( input === '') {
       setShowTop5(false);
       return  updateContext({ type: 'CLEAR_REPOS' });
@@ -18,7 +18,7 @@ const SearchBar = ({ onSeeAll, className }) => {
   }
 
   const fetchData = async (input) =>  {
-    updateContext({ type: 'LOADING_REPOS', input })  // change to LOAD_REPOS
+    updateContext({ type: 'LOADING_REPOS' })
 
     try {
       const { data, error: resError } = await searchGitHubRepos(input);
@@ -35,9 +35,20 @@ const SearchBar = ({ onSeeAll, className }) => {
 
   return (
     <div>
-      <input className={`search-bar ${className?.searchBar}`} onChange={({target}) => { onInputChange(target.value) }} value={searchInput}/>
-      { searchInput?.length !== 0 && error && <p className="flex align-center marg-1">No repositories have been found. Please try again.</p> }
-      <Top5 showTop5={showTop5} hideTop5={() => setShowTop5(false)} onSeeAll={() => { setShowTop5(false); onSeeAll(); }} className={className?.top5}/> 
+      <input 
+        className={`search-bar ${className?.searchBar}`}
+        onChange={({target}) => onInputChange(target.value)}
+      />
+      { 
+        error 
+        && <p className="flex align-center marg-1">No repositories have been found. Please try again.</p>
+      }
+      <Top5
+        showTop5={showTop5} 
+        hideTop5={() => setShowTop5(false)} 
+        onSeeAll={() => { setShowTop5(false); onSeeAll(); }} 
+        className={className?.top5}
+      /> 
     </div>
   )
 };

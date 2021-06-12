@@ -11,7 +11,7 @@ export const reducer = (state, payload) => {
   console.log(payload)
   switch(payload.type) {
     case 'LOADING_REPOS':
-      return { ...state, searchInput: payload.input, loading: true, error: false, ...clearAllRepos }
+      return { ...state, loading: true, error: false, ...clearAllRepos }
     case 'GET_REPOS':
       return {
         ...state, ...clearAllRepos, repos: payload.data, 
@@ -19,7 +19,7 @@ export const reducer = (state, payload) => {
       };
     case 'CLEAR_REPOS':
       return {
-        ...state, ...clearAllRepos, searchInput: '', error: false, loading: false
+        ...state, ...clearAllRepos, error: false, loading: false
       };
     case 'ERROR_REPOS':
       return {
@@ -36,9 +36,11 @@ export const reducer = (state, payload) => {
     case 'SORTED_REPOS':
       return {
         ...state, sortedRepos: payload.data, repos: mergeRepos(state.filteredRepos, payload.data),
-      }
+      };
     case 'SET_SELECTED_REPO':
-      return { ...state, selectedRepo: payload.repo }
+      return { ...state, selectedRepo: payload.repo };
+    case 'SET_SHOW_ALL_REPOS': 
+      return { ...state, showAllRepos: payload.showAllRepos }
     default:
       return { ...state}
   }
