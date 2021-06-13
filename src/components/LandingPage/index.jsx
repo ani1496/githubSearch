@@ -5,11 +5,28 @@ import ShowAll from './ShowAll';
 import SortOptions from './SortOptions';
 import Filter from './Filter';
 import logo from '../../images/logo.svg';
+import Loader from '../shared/Loader';
+import Error from '../shared/Error';
 
 const LandingPage = () => {
-  const { initRepos } = useStore();
-  
-  console.log('LandingPage', initRepos);
+  const { initRepos, loading, error } = useStore();
+
+  let Data = null;
+
+  if (loading) Data = <Loader className="marg-2-t" />;
+
+  if (error) Data = <Error className="marg-2-t" />
+
+  if (initRepos.length > 0) Data = (
+    <>  
+    <div className="row space-between">
+      <SortOptions />
+      <Filter />
+    </div>
+      <hr/>
+      <ShowAll />
+    </>
+  );
 
   return (
     <div className="container">
@@ -20,16 +37,7 @@ const LandingPage = () => {
         </div>
         <SearchBar showSearches={false}/>
       </>
-      {initRepos.length > 0 && (
-        <>  
-        <div className="row space-between">
-          <SortOptions />
-          <Filter />
-        </div>
-          <hr/>
-          <ShowAll />
-        </>
-      )}
+      {Data}
     </div>
   );
 };

@@ -34,6 +34,7 @@ const SearchBar = ({ showSearches, className }) => {
     if (debouncedSearchInput) return fetchData(debouncedSearchInput);
 
     if (debouncedSearchInput === '') {
+      setHideTop5(true);
       return updateContext({ type: 'CLEAR_REPOS' })
     };
 

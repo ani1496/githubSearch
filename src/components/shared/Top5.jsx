@@ -2,9 +2,11 @@ import React from 'react';
 // { useState, useRef, useLayoutEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import { useStore } from '../store';
+import Loader from './Loader';
+import Error from './Error';
 
 const Top5 = ({ history, hide, setHideTop5 }) => {
-  const { initRepos, updateContext } = useStore();
+  const { loading, error, initRepos, updateContext } = useStore();
 
   const onRepoClick = (repo) => {
     setHideTop5(true);
@@ -16,7 +18,20 @@ const Top5 = ({ history, hide, setHideTop5 }) => {
     history.push('/');
   }
 
-  if (hide) return null
+  if (loading) return (
+    <div className="column results white-bg fixed pad-1">
+      <Loader className="loader-sm" />
+    </div>
+  )
+
+  if (error) return (
+    <div className="column results white-bg fixed pad-1">
+      <Error />
+    </div>
+  )
+
+  if (hide) return null;
+
 
   return (
     <div className="column results white-bg fixed">

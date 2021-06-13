@@ -92,3 +92,23 @@
   margin-left: unset;
   margin-right: unset;
 }
+
+.loader {
+  margin-left: 45%;
+  border: 5px solid #f3f3f3; /* Light grey */
+  border-top: 5px solid #53565A; /* Blue */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1.5s linear infinite;
+}
+
+.loader-sm {
+  width: 20px;
+  height: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
