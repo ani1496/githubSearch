@@ -8,8 +8,6 @@ import RepoDetails from './RepoDetails';
 const DetailsPage = () => {
   const { selectedRepo } = useStore();
 
-  console.log('selectedRepo', selectedRepo);
-
   // Read ID and fetch repo using git api
   // const { id: repoId } = queryString.parse(window.location.search);
   // const repo = repos.find( repo => repo.id === parseInt(repoId) )

@@ -7,12 +7,12 @@ const Store = ({children}) => {
   const initialState = {
     error: false,
     loading: false,
+    searchVal: '',
     selectedRepo: '',
     repos: [],
     initRepos: [],
     sortedRepos: [],
     filteredRepos: [],
-    showAllRepos: false,
   };
 
   const [context, updateContext] = useReducer(reducer, initialState)

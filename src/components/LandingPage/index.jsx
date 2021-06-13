@@ -7,7 +7,9 @@ import Filter from './Filter';
 import logo from '../../images/logo.svg';
 
 const LandingPage = () => {
-  const { initRepos, showAllRepos, updateContext } = useStore();
+  const { initRepos } = useStore();
+  
+  console.log('LandingPage', initRepos);
 
   return (
     <div className="container">
@@ -16,20 +18,17 @@ const LandingPage = () => {
           <img src={logo} alt="logo" className="github-logo pad-2-r"/>
           <h1>GitHub Search</h1>
         </div>
-        <SearchBar 
-          onChange={() => updateContext({ type: 'SET_SHOW_ALL_REPOS', showAllRepos: false })} 
-          onSeeAll={() => updateContext({ type: 'SET_SHOW_ALL_REPOS', showAllRepos: true })}
-        />
+        <SearchBar showSearches={false}/>
       </>
-      {showAllRepos && initRepos.length > 0 && (
-      <>  
-      <div className="row space-between">
-        <SortOptions />
-        <Filter />
-      </div>
-        <hr/>
-        <ShowAll />
-      </>
+      {initRepos.length > 0 && (
+        <>  
+        <div className="row space-between">
+          <SortOptions />
+          <Filter />
+        </div>
+          <hr/>
+          <ShowAll />
+        </>
       )}
     </div>
   );

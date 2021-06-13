@@ -8,10 +8,9 @@ const clearAllRepos = {
 }
 
 export const reducer = (state, payload) => {
-  console.log(payload)
   switch(payload.type) {
     case 'LOADING_REPOS':
-      return { ...state, loading: true, error: false, ...clearAllRepos }
+      return { ...state, loading: true, error: false, searchVal: payload.searchVal, ...clearAllRepos }
     case 'GET_REPOS':
       return {
         ...state, ...clearAllRepos, repos: payload.data, 
@@ -19,7 +18,7 @@ export const reducer = (state, payload) => {
       };
     case 'CLEAR_REPOS':
       return {
-        ...state, ...clearAllRepos, error: false, loading: false
+        ...state, ...clearAllRepos, searchVal: '', error: false, loading: false,
       };
     case 'ERROR_REPOS':
       return {
@@ -39,8 +38,6 @@ export const reducer = (state, payload) => {
       };
     case 'SET_SELECTED_REPO':
       return { ...state, selectedRepo: payload.repo };
-    case 'SET_SHOW_ALL_REPOS': 
-      return { ...state, showAllRepos: payload.showAllRepos }
     default:
       return { ...state}
   }
