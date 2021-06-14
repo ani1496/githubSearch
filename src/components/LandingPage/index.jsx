@@ -19,7 +19,7 @@ const LandingPage = () => {
 
   if (initRepos.length > 0) Data = (
     <>  
-    <div className="row space-between">
+    <div className="row space-between sort-filter pad-1-b">
       <SortOptions />
       <Filter />
     </div>

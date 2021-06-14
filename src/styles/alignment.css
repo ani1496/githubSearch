@@ -31,3 +31,10 @@
 .fixed {
   position: fixed;
 }
+
+@media (max-width: 480px) {
+  .column-sm {
+    display: flex;
+    flex-direction: column !important;
+  }
+}

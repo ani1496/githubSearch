@@ -112,3 +112,24 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+@media (max-width: 480px) {
+  .search-bar {
+    width: -webkit-fill-available;
+  }
+  .container {
+    margin: 20px;
+  }
+  .sort-filter {
+    flex-direction: column !important;
+  }
+  .details-box {
+    margin-top: 20px;
+    margin-left: 0px;
+    width: auto;
+  }
+  .results {
+    width: auto !important;
+    position: relative !important;
+  }
+}

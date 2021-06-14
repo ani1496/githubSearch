@@ -7,14 +7,14 @@ import Avatar from '../../images/avatar.png';
 
 const RepoDetails = ({repo}) => {
   const {
-    name, description, git_url, homepage,
+    name, description, homepage,
     stargazers_count, size, watchers,
-    language, license, owner,
+    language, license, owner, html_url,
   } = repo;
 
   return (
     <div className="container">
-      <div className="row space-between">
+      <div className="row space-between column-sm">
         <div>
           <div className="row align-items-center">
             <img src={Avatar} alt="avatar" style={{ height: '5em' }}/>
@@ -26,8 +26,8 @@ const RepoDetails = ({repo}) => {
           <p className="flex marg-1-tb">{description}</p>
           <div className="row marg-2-t">
             <p className="pad-2-r">Take me to:</p>
-            <a className="pad-2-r grey" href={git_url}>GitHub Repository</a>
-            <a className="grey" href={homepage}>Documentation</a>
+            <a className="pad-2-r grey" href={html_url} rel="noopener noreferrer" target="_blank">GitHub Repository</a>
+            {homepage && <a className="grey" href={homepage} rel="noopener noreferrer" target="_blank">Documentation</a>}
           </div>
         </div>
         <div className="column col-4 details-box pad-1 marg-1-l">

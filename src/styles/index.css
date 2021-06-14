@@ -15,9 +15,11 @@ a {
 }
 
 hr {
-  border: 1px solid;
+  border: 0.5px solid;
   color: black;
   background-color: black;
+  width: -webkit-fill-available;
+  margin: unset;
 }
 
 body {
@@ -108,4 +110,14 @@ code {
 
 .col-4 {
   width: 30%;
+}
+
+.full-width {
+  width: max-content;
+}
+
+@media (max-width: 480px) {
+  .col-4-sm {
+    width: 40% !important;
+  }
 }

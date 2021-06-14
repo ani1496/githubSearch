@@ -21,7 +21,7 @@ const SortOptions = () => {
     if(!showOptions) return null;
   
     return (
-      <div className="column dropdown-options">
+      <div className="column dropdown-options col-4-sm">
         {options.map(option => (
           <Fragment key={option}>
           <button onClick={() => onSelectOption(option)} className="pad-1-tb">
@@ -34,7 +34,7 @@ const SortOptions = () => {
   }
 
   return(
-    <div className="col-4 marg-2-t">
+    <div className="col-4 marg-2-t full-width">
       <button onClick={() => setShowOptions(!showOptions)}>
         Sort by: {constants[sort]}
       </button>
