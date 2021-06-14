@@ -1,9 +1,10 @@
 import React, { useReducer } from 'react';
+import PropTypes from 'prop-types';
 import { reducer } from './reducer';
 
 export const StoreContext = React.createContext({});
 
-const Store = ({children}) => {
+const Store = ({ children }) => {
   const initialState = {
     error: false,
     loading: false,
@@ -22,6 +23,10 @@ const Store = ({children}) => {
       {children}
     </StoreContext.Provider>
   )
+}
+
+Store.propTypes = {
+  children: PropTypes.element.isRequired
 }
 
 export const useStore = () => React.useContext(StoreContext)

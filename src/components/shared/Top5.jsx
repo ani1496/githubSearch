@@ -1,5 +1,5 @@
 import React from 'react';
-// { useState, useRef, useLayoutEffect } from 'react';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { useStore } from '../store';
 import Loader from './Loader';
@@ -32,7 +32,6 @@ const Top5 = ({ history, hide, setHideTop5 }) => {
 
   if (hide) return null;
 
-
   return (
     <div className="column results white-bg fixed">
       {
@@ -47,5 +46,11 @@ const Top5 = ({ history, hide, setHideTop5 }) => {
     </div>
   )
 };
+
+Top5.propTypes = {
+  history: PropTypes.object.isRequired,
+  hide: PropTypes.bool.isRequired,
+  setHideTop5: PropTypes.func.isRequired,
+}
 
 export default withRouter(Top5);

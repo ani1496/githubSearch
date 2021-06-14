@@ -33,14 +33,14 @@ const SortOptions = () => {
     )
   }
 
-  return(
+  return (
     <div className="col-4 marg-2-t full-width">
       <button onClick={() => setShowOptions(!showOptions)}>
         Sort by: {constants[sort]}
       </button>
      {getOptions()}
     </div>
-  )
+  );
 }
 
 export default SortOptions;

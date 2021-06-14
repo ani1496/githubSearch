@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FaStar, FaBalanceScale } from "react-icons/fa";
 import { FiHardDrive } from 'react-icons/fi';
 import { FcBinoculars } from 'react-icons/fc';
@@ -41,6 +42,10 @@ const RepoDetails = ({ repo }) => {
       </div>
     </div>
   )
+}
+
+RepoDetails.propTypes = {
+  repo: PropTypes.object.isRequired,
 }
 
 export default RepoDetails;

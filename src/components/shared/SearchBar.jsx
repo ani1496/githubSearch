@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import PropTypes from 'prop-types';
 import { useStore } from '../store';
 import { searchGitHubRepos } from '../utils/methods';
 import { useDebounce } from '../utils/hooks';
@@ -37,8 +38,7 @@ const SearchBar = ({ showSearches, className }) => {
       setHideTop5(true);
       return updateContext({ type: 'CLEAR_REPOS' })
     };
-
-    },
+  },
     // fetchData is not a dependency
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [debouncedSearchInput]
@@ -58,5 +58,14 @@ const SearchBar = ({ showSearches, className }) => {
     </div>
   )
 };
+
+SearchBar.propTypes = {
+  showSearches: PropTypes.bool.isRequired,
+  className: PropTypes.string,
+}
+
+SearchBar.defaultProps = {
+  className: '',
+}
 
 export default SearchBar;
