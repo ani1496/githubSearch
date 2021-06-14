@@ -5,7 +5,7 @@ import { FcBinoculars } from 'react-icons/fc';
 import { VscFileCode } from 'react-icons/vsc';
 import Avatar from '../../images/avatar.png';
 
-const RepoDetails = ({repo}) => {
+const RepoDetails = ({ repo }) => {
   const {
     name, description, homepage,
     stargazers_count, size, watchers,

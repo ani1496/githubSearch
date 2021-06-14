@@ -18,7 +18,7 @@ const LandingPage = () => {
   if (error) Data = <Error className="marg-2-t" />
 
   if (initRepos.length > 0) Data = (
-    <>  
+    <>
     <div className="row space-between sort-filter pad-1-b">
       <SortOptions />
       <Filter />

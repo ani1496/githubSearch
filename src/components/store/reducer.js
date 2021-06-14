@@ -13,7 +13,7 @@ export const reducer = (state, payload) => {
       return { ...state, loading: true, error: false, searchVal: payload.searchVal, ...clearAllRepos }
     case 'GET_REPOS':
       return {
-        ...state, ...clearAllRepos, repos: payload.data, 
+        ...state, ...clearAllRepos, repos: payload.data,
         initRepos: payload.data, error: false, loading: false
       };
     case 'CLEAR_REPOS':

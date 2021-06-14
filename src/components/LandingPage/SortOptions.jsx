@@ -18,8 +18,8 @@ const SortOptions = () => {
   }
 
   const getOptions = () => {
-    if(!showOptions) return null;
-  
+    if (!showOptions) return null;
+
     return (
       <div className="column dropdown-options col-4-sm">
         {options.map(option => (

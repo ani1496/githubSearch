@@ -16,9 +16,9 @@ const SearchBar = ({ showSearches, className }) => {
 
     try {
       const { data, error: resError } = await searchGitHubRepos(input);
-      if(showSearches) setHideTop5(data.length === 0);
-    
-      if(resError && data.length === 0) {
+      if (showSearches) setHideTop5(data.length === 0);
+
+      if (resError && data.length === 0) {
         return updateContext({ type: 'ERROR_REPOS' });
       }
 
@@ -38,7 +38,7 @@ const SearchBar = ({ showSearches, className }) => {
       return updateContext({ type: 'CLEAR_REPOS' })
     };
 
-    }, 
+    },
     // fetchData is not a dependency
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [debouncedSearchInput]
@@ -46,7 +46,7 @@ const SearchBar = ({ showSearches, className }) => {
 
   return (
     <div>
-      <input 
+      <input
         className={`search-bar ${className}`}
         type="text"
         onChange={({target}) => setSearchInput(target.value)}

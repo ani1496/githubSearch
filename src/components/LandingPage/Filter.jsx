@@ -1,13 +1,12 @@
 import React from 'react';
 import { useStore } from '../store';
 import { filterRepos } from '../utils/methods';
-// { useState } 
 
 const Filter = () => {
   const { initRepos, updateContext } = useStore();
 
   const onFilterValChange = (val) => {
-    if(val === '') return updateContext({ type: 'CLEAR_FILTER'})
+    if (val === '') return updateContext({ type: 'CLEAR_FILTER' })
 
     const filteredRepos = filterRepos(initRepos, val);
     updateContext({ type: 'FILTERED_REPOS', data: filteredRepos })

@@ -1,123 +1,126 @@
-p { all: unset; }
-
-h2 { margin: unset; }
-
-h3 { margin: unset; }
-
-button {
-   all: unset;
-  cursor: pointer; 
+p {
+	all: unset;
 }
 
-a { 
-  text-decoration: unset !important;
-  color: rgb(0, 0, 0);
+h2 {
+	margin: unset;
+}
+
+h3 {
+	margin: unset;
+}
+
+button {
+	all: unset;
+	cursor: pointer;
+}
+
+a {
+	text-decoration: unset !important;
+	color: rgb(0, 0, 0);
 }
 
 hr {
-  border: 0.5px solid;
-  color: black;
-  background-color: black;
-  width: -webkit-fill-available;
-  margin: unset;
+	border: 0.5px solid;
+	color: black;
+	background-color: black;
+	width: -webkit-fill-available;
+	margin: unset;
 }
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+		"Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 /* Padding */
 
 .pad-1 {
-  padding: 5px;
+	padding: 5px;
 }
 
 .pad-1-t {
-  padding-top: 5px;
- }
+	padding-top: 5px;
+}
 
 .pad-1-r {
- padding-right: 5px;
+	padding-right: 5px;
 }
 
 .pad-1-l {
-  padding-left: 5px;
+	padding-left: 5px;
 }
 
 .pad-1-b {
-  padding-bottom: 5px;
- }
+	padding-bottom: 5px;
+}
 
 .pad-1-tb {
-  padding-top: 5px;
-  padding-bottom: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
 .pad-2 {
-  padding: 10px;
+	padding: 10px;
 }
 
 .pad-2-t {
-  padding-top: 10px;
+	padding-top: 10px;
 }
 
 .pad-2-b {
-  padding-bottom: 10px;
+	padding-bottom: 10px;
 }
 
 .pad-2-r {
- padding-right: 10px;
+	padding-right: 10px;
 }
 
 /* Margins */
 
 .marg-1 {
-  margin: 15px;
+	margin: 15px;
 }
 
 .marg-1-t {
-  margin-top: 15px;
+	margin-top: 15px;
 }
 
 .marg-1-l {
-  margin-left: 15px;
+	margin-left: 15px;
 }
 
 .marg-1-tb {
-  margin-top: 15px;
-  margin-bottom: 15px;
+	margin-top: 15px;
+	margin-bottom: 15px;
 }
 
 .marg-2-t {
-  margin-top: 25px;
+	margin-top: 25px;
 }
-
 
 /* column sizes */
 .col-3 {
-  width: 20%;
+	width: 20%;
 }
 
 .col-4 {
-  width: 30%;
+	width: 30%;
 }
 
 .full-width {
-  width: max-content;
+	width: max-content;
 }
 
 @media (max-width: 480px) {
-  .col-4-sm {
-    width: 40% !important;
-  }
+	.col-4-sm {
+		width: 40% !important;
+	}
 }
