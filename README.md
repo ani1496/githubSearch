@@ -1,6 +1,6 @@
 # About
 
-This project is a React exercise for Hotel Engine that searches GitHub repositories using search API and displays all results.
+This project is a React exercise that searches GitHub repositories using search API and displays all results.
 
 ## Run Project
 
