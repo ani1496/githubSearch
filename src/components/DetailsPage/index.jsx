@@ -1,18 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useStore } from '../store';
-// import queryString from 'query-string'
-import { Redirect } from 'react-router-dom';
+import queryString from 'query-string'
 import Header from '../shared/Header';
 import RepoDetails from './RepoDetails';
+import { searchGitHubRepoByName } from '../utils/methods';
 
 const DetailsPage = () => {
-  const { selectedRepo } = useStore();
+  const { selectedRepo, updateContext } = useStore();
+  const [error, setError] = useState(false);
 
-  // Read ID and fetch repo using git api for more details
-  // const { id: repoId } = queryString.parse(window.location.search);
-  // const repo = repos.find( repo => repo.id === parseInt(repoId) )
+  const parameters = queryString.parse(window.location.search);
 
-  if (!selectedRepo || selectedRepo.length === 0) return <Redirect to="/"/>
+  useEffect(() => {
+    const getRepo = async () => {
+      const { data, error, status } = await searchGitHubRepoByName(parameters?.user, parameters?.repo);
+
+      if (status === 200 && !error) updateContext({ type: 'SET_SELECTED_REPO', repo: data });
+
+      else setError(true);
+    }
+
+    if (Object.keys(selectedRepo).length === 0) getRepo();
+  }, []);
+
+  if (Object.keys(selectedRepo).length === 0 || error) return <p>Nothing Found</p>
 
   return (
     <div>

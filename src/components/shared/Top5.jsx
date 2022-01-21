@@ -11,7 +11,7 @@ const Top5 = ({ history, hide, setHideTop5 }) => {
   const onRepoClick = (repo) => {
     setHideTop5(true);
     updateContext({ type: 'SET_SELECTED_REPO', repo });
-    history.push(`/details?id=${repo.id}`);
+    history.push(`/details?user=${repo.owner.login}&&repo=${repo.name}`);
   }
 
   const onSeeAllClick = () => {
@@ -35,13 +35,13 @@ const Top5 = ({ history, hide, setHideTop5 }) => {
   return (
     <div className="column results white-bg fixed">
       {
-        initRepos.slice(0,5).map((repo, indx) => (
+        initRepos.slice(0, 5).map((repo, indx) => (
           <button className="result" key={`${repo.name}-${indx}`} onClick={() => onRepoClick(repo)}>
             {repo.name}
           </button>
         ))
       }
-      <hr/>
+      <hr />
       <button className="result" onClick={onSeeAllClick}>See All</button>
     </div>
   )

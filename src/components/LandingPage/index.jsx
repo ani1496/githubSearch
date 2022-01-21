@@ -9,7 +9,7 @@ import Loader from '../shared/Loader';
 import Error from '../shared/Error';
 
 const LandingPage = () => {
-  const { initRepos, loading, error } = useStore();
+  const { initRepos, loading, error, noneFound } = useStore();
 
   let Data = null;
 
@@ -17,25 +17,27 @@ const LandingPage = () => {
 
   if (error) Data = <Error className="marg-2-t" />
 
+  if (noneFound) Data = <p>There are no results found</p>
+
   if (initRepos.length > 0) Data = (
     <>
-    <div className="row space-between sort-filter pad-1-b">
-      <SortOptions />
-      <Filter />
-    </div>
-      <hr/>
+      <div className="row space-between sort-filter pad-1-b">
+        <SortOptions />
+        <Filter />
+      </div>
+      <hr />
       <ShowAll />
     </>
   );
 
   return (
     <div className="container">
-       <>
+      <>
         <div className={`row align-center align-items-center`}>
-          <img src={logo} alt="logo" className="github-logo pad-2-r"/>
+          <img src={logo} alt="logo" className="github-logo pad-2-r" />
           <h1>GitHub Search</h1>
         </div>
-        <SearchBar showSearches={false}/>
+        <SearchBar showSearches={false} />
       </>
       {Data}
     </div>

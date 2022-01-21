@@ -8,7 +8,7 @@ const clearAllRepos = {
 }
 
 export const reducer = (state, payload) => {
-  switch(payload.type) {
+  switch (payload.type) {
     case 'LOADING_REPOS':
       return { ...state, loading: true, error: false, searchVal: payload.searchVal, ...clearAllRepos }
     case 'GET_REPOS':
@@ -38,8 +38,12 @@ export const reducer = (state, payload) => {
       };
     case 'SET_SELECTED_REPO':
       return { ...state, selectedRepo: payload.repo };
+    case 'NO_REPOS':
+      return {
+        ...state, ...clearAllRepos, error: false, loading: false, noneFound: true,
+      };
     default:
-      return { ...state}
+      return { ...state }
   }
 }
 

@@ -12,12 +12,16 @@ const SearchBar = ({ showSearches, className }) => {
 
   const debouncedSearchInput = useDebounce(searchInput, 400);
 
-  const fetchData = async (input) =>  {
+  const fetchData = async (input) => {
     updateContext({ type: 'LOADING_REPOS', searchVal: input })
 
     try {
       const { data, error: resError } = await searchGitHubRepos(input);
       if (showSearches) setHideTop5(data.length === 0);
+
+      if (!resError && data.length === 0) {
+        return updateContext({ type: 'NO_REPOS' });
+      }
 
       if (resError && data.length === 0) {
         return updateContext({ type: 'ERROR_REPOS' });
@@ -49,10 +53,10 @@ const SearchBar = ({ showSearches, className }) => {
       <input
         className={`search-bar ${className}`}
         type="text"
-        onChange={({target}) => setSearchInput(target.value)}
+        onChange={({ target }) => setSearchInput(target.value)}
         value={searchInput}
       />
-      { showSearches &&
+      {showSearches &&
         <Top5 hide={hideTop5} setHideTop5={setHideTop5} />
       }
     </div>

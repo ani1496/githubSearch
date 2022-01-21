@@ -14,6 +14,7 @@ const Store = ({ children }) => {
     initRepos: [],
     sortedRepos: [],
     filteredRepos: [],
+    noneFound: false,
   };
 
   const [context, updateContext] = useReducer(reducer, initialState)
